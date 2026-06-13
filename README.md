@@ -2,6 +2,7 @@
 (大概是)最简约的语言模型代理
 
 # Ollama.py 使用指南
+![Screenshot.png](Screenshot.png)
 ## 1. 介绍
 这是一个基于 [Ollama Python SDK](https://github.com/ollama/ollama-python) 的命令行聊天脚本，通过调用 Ollama 本地大语言模型来实现LLM Agent。支持的功能有：
 
@@ -83,3 +84,4 @@ def my_function(input: int) -> int:
 模型可知晓函数的返回结果。
 ### Agent能力解释
 通常，为了能够完成复杂任务，agent需要实现单次可调用多个工具(Parallel tool calling)以及多轮工具调用(Multi-turn tool calling)这两个功能。前者允许agent同时调用多个互不影响的工具，如从不同的来源收集信息；后者允许agent依序调用多个工具，可将前一轮工具调用所获得的信息作为参考，输入至后面一轮。本脚本中，前者由`for call in response.message.tool_calls`实现，后者则由`while`循环至模型认为无需再调用任何工具来实现。
+![Mermaid.png](Mermaid.png)
